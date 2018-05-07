@@ -4,8 +4,9 @@ var URL = window.location.href
 var title = document.title
 var description = document.querySelector('meta[name="description"]').getAttribute('content')
 var shares = document.body.querySelector('#shares')
-var mobileDetect = new MobileDetect(window.navigator.userAgent)
-var isPhone = mobileDetect.phone()
+var detector = new MobileDetect(window.navigator.userAgent)
+var isPhone = detector.phone()
+var isIOS = detector.os() ? detector.os().toLowerCase() === 'ios' : false
 
 
 // Helpers
@@ -85,8 +86,9 @@ function addShareSMS(sharedURL, title, description)
 {
     if (isPhone)
     {
+        var separator = isIOS ? '&' : '?'
         var URL = 'sms:'
-            + '&body=' + encodeURIComponent(title + ': ' + description + ' ' + sharedURL)
+            + separator + 'body=' + encodeURIComponent(title + ': ' + description + ' ' + sharedURL)
         
         appendLink('Share by SMS', URL, false)
     }
