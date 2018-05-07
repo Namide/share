@@ -1,6 +1,6 @@
 // Constants
 
-var URL = 'https://github.com/Namide/share'
+var URL = window.location.href
 var title = document.title
 var description = document.querySelector('meta[name="description"]').getAttribute('content')
 var shares = document.body.querySelector('#shares')
