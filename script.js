@@ -17,6 +17,7 @@ function appendLink(title, URL, isTargetBlank = true)
 
     var a = document.createElement('a')
     a.href = URL
+    a.setAttribute('rel', 'noopener')
 
     if (isTargetBlank)
     {
