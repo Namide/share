@@ -59,7 +59,7 @@ function addShareFacebook(sharedURL)
 
 function addShareTwitter(sharedURL, title, description)
 {
-    var twitterShareURL = 'https://twitter.com/home?status='
+    var twitterShareURL = 'https://twitter.com/intent/tweet?text='
     var message = title + ': ' + description + ' ' + sharedURL
     var URL = twitterShareURL + encodeURIComponent(message)
     var a = appendLink('Twitter share', URL)
