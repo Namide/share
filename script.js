@@ -1,6 +1,7 @@
 // Constants
 
 var URL = window.location.href
+var domain = window.location.hostname
 var title = document.title
 var description = document.querySelector('meta[name="description"]').getAttribute('content')
 var shares = document.body.querySelector('#shares')
@@ -74,6 +75,17 @@ function addShareGooglePlus(sharedURL)
     usePopup(a, 500, 640)
 }
 
+function addShareLinkedin(sharedURL, title, description, domain)
+{
+    var URL = 'https://www.linkedin.com/shareArticle?mini=true'
+        + '&url=' + encodeURIComponent(sharedURL)
+        + '&title=' + encodeURIComponent(title)
+        + '&summary=' + encodeURIComponent(description)
+        + '&source=' + encodeURIComponent(domain)
+    var a = appendLink('Linkedin share', URL)
+    usePopup(a, 500, 640)
+}
+
 function addShareMail(sharedURL, title, description)
 {
     var URL = 'mailto:'
@@ -119,6 +131,7 @@ function addShareWhatsApp(sharedURL, title, description)
 addShareFacebook(URL)
 addShareTwitter(URL, title, description)
 addShareGooglePlus(URL)
+addShareLinkedin(URL, title, description, domain)
 addShareMail(URL, title, description)
 addShareWhatsApp(URL, title, description)
 addShareSMS(URL, title, description)
